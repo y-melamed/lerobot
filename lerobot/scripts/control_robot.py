@@ -428,9 +428,9 @@ def record(
 
         if not is_headless():
             image_keys = [key for key in observation if "image" in key]
-            for key in image_keys:
-                cv2.imshow(key, cv2.cvtColor(observation[key].numpy(), cv2.COLOR_RGB2BGR))
-            cv2.waitKey(1)
+            # for key in image_keys:
+            #     cv2.imshow(key, cv2.cvtColor(observation[key].numpy(), cv2.COLOR_RGB2BGR))
+            # cv2.waitKey(1)
 
         dt_s = time.perf_counter() - start_loop_t
         busy_wait(1 / fps - dt_s)
@@ -473,9 +473,9 @@ def record(
 
                 if not is_headless():
                     image_keys = [key for key in observation if "image" in key]
-                    for key in image_keys:
-                        cv2.imshow(key, cv2.cvtColor(observation[key].numpy(), cv2.COLOR_RGB2BGR))
-                    cv2.waitKey(1)
+                    # for key in image_keys:
+                    #     cv2.imshow(key, cv2.cvtColor(observation[key].numpy(), cv2.COLOR_RGB2BGR))
+                    # cv2.waitKey(1)
 
                 for key in not_image_keys:
                     if key not in ep_dict:
