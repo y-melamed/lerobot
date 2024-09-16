@@ -242,6 +242,7 @@ def is_headless():
 
 
 def calibrate(robot: Robot, arms: list[str] | None):
+    print(arms)
     available_arms = []
     for name in robot.follower_arms:
         arm_id = get_arm_id(name, "follower")
@@ -249,7 +250,7 @@ def calibrate(robot: Robot, arms: list[str] | None):
     for name in robot.leader_arms:
         arm_id = get_arm_id(name, "leader")
         available_arms.append(arm_id)
-
+    arms = available_arms
     unknown_arms = [arm_id for arm_id in arms if arm_id not in available_arms]
 
     available_arms_str = " ".join(available_arms)
@@ -700,8 +701,9 @@ def replay(robot: Robot, episode: int, fps: int | None = None, root="data", repo
     to_idx = dataset.episode_data_index["to"][episode].item()
 
     if not robot.is_connected:
+        print("!!!!!!!!!!!!!!!!")
         robot.connect()
-
+    print("FFFFFFffffffffffffffff")
     logging.info("Replaying episode")
     say("Replaying episode", blocking=True)
     for idx in range(from_idx, to_idx):
