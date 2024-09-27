@@ -17,10 +17,11 @@ from lerobot.scripts.push_dataset_to_hub import (
     save_meta_data,
 )
 fps = 30
+num_episodes = 20
 
-for dir_idx in range(10, 15):
-    repo_id = f'yanivmel1/yaniv_new_cube_{dir_idx}'
-    local_dir = f'/home/aloha/Desktop/lerobot/data/rotem/cube_{dir_idx}'
+for dir_idx in [2]:
+    repo_id = f'yanivmel1/post_hack_cube_{dir_idx}'
+    local_dir = f'/home/aloha/Desktop/lerobot/data/yaniv3/post_hack_cube_{dir_idx}'
 
 
     local_dir = Path(local_dir)
@@ -29,7 +30,6 @@ for dir_idx in range(10, 15):
     videos_dir = Path(videos_dir)
     video = True
 
-    num_episodes = 10
     image_keys = ["observation.images.laptop","observation.images.phone"]
     # Use ffmpeg to convert frames stored as png into mp4 videos
     for episode_index in tqdm.tqdm(range(num_episodes)):

@@ -7,10 +7,10 @@ from lerobot.common.robot_devices.motors.dynamixel import DynamixelMotorsBus
 from lerobot.common.robot_devices.robots.manipulator import ManipulatorRobot
 
 # ckpt_path = "outputs/train/act_koch_test/checkpoints/last/pretrained_model"
-ckpt_path = '/home/aloha/Downloads/cube_new'
+ckpt_path = '/home/aloha/Downloads/post_hack_1_200000'
 
-leader_port = "/dev/ttyACM1"
-follower_port = "/dev/ttyACM0"
+leader_port = "/dev/ttyACM0"
+follower_port = "/dev/ttyACM1"
 
 leader_arm = DynamixelMotorsBus(
     port=leader_port,
@@ -65,6 +65,7 @@ for _ in range(inference_time_s * fps):
 
     # Read the follower state and access the frames from the cameras
     observation = robot.capture_observation()
+    print(observation["observation.state"])
 
     # Convert to pytorch format: channel first and float32 in [0,1]
     # with batch dimension

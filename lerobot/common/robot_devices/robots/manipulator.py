@@ -89,7 +89,6 @@ def run_arm_calibration(arm: MotorsBus, robot_type: str, arm_name: str, arm_type
     # It is easy to identify and all motors are in a "quarter turn" position. Once calibration is done, this position will
     # correspond to every motor angle being 0. If you set all 0 as Goal Position, the arm will move in this position.
     zero_target_pos = convert_degrees_to_steps(ZERO_POSITION_DEGREE, arm.motor_models)
-
     # Compute homing offset so that `present_position + homing_offset ~= target_position`.
     zero_pos = arm.read("Present_Position")
     zero_nearest_pos = compute_nearest_rounded_position(zero_pos, arm.motor_models)
